@@ -16,8 +16,8 @@ public class StartTaskApplication {
     @Bean
     CommandLineRunner initDatabase(TaskRepository repository) {
         return args -> {
-            repository.save(new Task("A Guide to the Bodhisattva Way of Life", 1L));
-            repository.save(new Task("A Guide to the Bodhisattva Way of Life 1", 2L));
+            repository.save(new Task("This is a description", 1L));
+            repository.save(new Task("This is a description 1", 2L));
            };
     }
 }

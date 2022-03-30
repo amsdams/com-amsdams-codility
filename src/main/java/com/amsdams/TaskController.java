@@ -44,7 +44,7 @@ public class TaskController {
 
 	// Save or update
 	@PutMapping("/tasks/{id}")
-	Task updateTask(@RequestBody Task newTask, @PathVariable Long id) {
+	Task updateTask(@Valid @RequestBody Task newTask, @PathVariable Long id) {
 
 		return repository.findById(id).map(x -> {
 			x.setDescription(newTask.getDescription());

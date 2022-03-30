@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Task {
@@ -13,7 +14,10 @@ public class Task {
 	@GeneratedValue
 	private Long id;
 
+	//@Size(max = 200, message = "Please provide a description of 200 chars")
+
 	@NotEmpty(message = "Please provide a description")
+	@Size(max=200)
 	private String description;
 
 	@NotNull(message = "Please provide a priority")

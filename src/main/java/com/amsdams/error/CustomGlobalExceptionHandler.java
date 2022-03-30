@@ -69,20 +69,22 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
                                  HttpHeaders headers,
                                  HttpStatus status, WebRequest request) {
 
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-        body.put("status", status.value());
+    	CustomErrorResponse errors = new CustomErrorResponse();
+        
+        errors.setStatus(HttpStatus.BAD_REQUEST.value());
 
         //Get all errors
-        List<String> errors = ex.getBindingResult()
+        List<String> result = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .map(x -> x.getDefaultMessage())
                 .collect(Collectors.toList());
 
-        body.put("errors", errors);
-
-        return new ResponseEntity<>(body, headers, status);
+        errors.setMessage(result.stream().findFirst().get());
+       
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        
+       
 
 
 
