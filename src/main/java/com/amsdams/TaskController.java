@@ -51,7 +51,7 @@ public class TaskController {
 			x.setPriority(newTask.getPriority());
 			return repository.save(x);
 		}).orElseThrow(() -> new TaskNotFoundException(id));
-	
+
 	}
 
 	@DeleteMapping("/tasks/{id}")

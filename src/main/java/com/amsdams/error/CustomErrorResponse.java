@@ -2,11 +2,11 @@ package com.amsdams.error;
 
 public class CustomErrorResponse {
 
-    
+
     private int status;
     private String message;
 
-    
+
 
     public int getStatus() {
         return status;

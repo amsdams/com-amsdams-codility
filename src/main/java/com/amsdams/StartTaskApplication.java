@@ -5,8 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.math.BigDecimal;
-
 @SpringBootApplication
 public class StartTaskApplication {
 
@@ -19,7 +17,7 @@ public class StartTaskApplication {
     CommandLineRunner initDatabase(TaskRepository repository) {
         return args -> {
             repository.save(new Task("A Guide to the Bodhisattva Way of Life", 1L));
-            repository.save(new Task("A Guide to the Bodhisattva Way of Life 1", 2L));    
+            repository.save(new Task("A Guide to the Bodhisattva Way of Life 1", 2L));
            };
     }
 }

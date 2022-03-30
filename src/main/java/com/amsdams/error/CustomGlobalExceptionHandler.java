@@ -22,7 +22,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-   
+
 
     @ExceptionHandler(TaskNotFoundException.class)
     public ResponseEntity<CustomErrorResponse> customHandleNotFound(Exception ex, WebRequest request) {
@@ -44,14 +44,14 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
             	 errors.setMessage(violation.getMessageTemplate());
                  errors.setStatus(HttpStatus.BAD_REQUEST.value());
     		}
-            
-           
+
+
 
             return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
         }
 		return null;
     }
-    
+
     // @Validate For Validating Path Variables and Request Parameters
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<CustomErrorResponse> constraintViolationException(ConstraintViolationException ex) {
@@ -84,7 +84,7 @@ public class CustomGlobalExceptionHandler extends ResponseEntityExceptionHandler
 
         return new ResponseEntity<>(body, headers, status);
 
-       
+
 
     }
 
